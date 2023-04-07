@@ -6,19 +6,11 @@ import { MantineProvider } from "@mantine/core";
 import { init } from "@sentry/nextjs";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
-import { GoogleAnalytics } from "src/components/GoogleAnalytics";
 import GlobalStyle from "src/constants/globalStyle";
 import { darkTheme, lightTheme } from "src/constants/theme";
 import { ModalController } from "src/containers/ModalController";
 import useStored from "src/store/useStored";
 
-if (process.env.NODE_ENV !== "development") {
-  init({
-    dsn: "https://d3345591295d4dd1b8c579b62003d939@o1284435.ingest.sentry.io/6495191",
-    tracesSampleRate: 0.25,
-    release: "production",
-  });
-}
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -47,7 +39,6 @@ function JsonCrack({ Component, pageProps }: AppProps) {
   if (isReady)
     return (
       <QueryClientProvider client={queryClient}>
-        <GoogleAnalytics />
         <ThemeProvider theme={lightmode ? lightTheme : darkTheme}>
           <GlobalStyle />
           <MantineProvider

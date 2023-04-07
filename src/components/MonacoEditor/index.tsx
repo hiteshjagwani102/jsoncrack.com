@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Editor, { loader, Monaco } from "@monaco-editor/react";
 import debounce from "lodash.debounce";
-import { Loading } from "src/components/Loading";
 import useJson from "src/store/useJson";
 import useStored from "src/store/useStored";
 
@@ -103,7 +102,6 @@ export const MonacoEditor = () => {
         theme={lightmode}
         options={editorOptions}
         onChange={handleChange}
-        loading={<Loading message="Loading Editor..." />}
         beforeMount={handleEditorWillMount}
         defaultLanguage="json"
         height="100%"
