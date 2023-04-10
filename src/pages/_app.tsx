@@ -3,7 +3,6 @@ import type { AppProps } from "next/app";
 import localFont from "next/font/local";
 import { ThemeProvider } from "styled-components";
 import { MantineProvider } from "@mantine/core";
-import { init } from "@sentry/nextjs";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 import GlobalStyle from "src/constants/globalStyle";

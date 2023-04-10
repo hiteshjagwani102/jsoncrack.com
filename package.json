@@ -1,18 +1,20 @@
 {
-  "name": "json-crack",
+  "name": "json-visualization",
   "private": true,
   "version": "v2.8.0",
-  "author": "https://github.com/AykutSarac",
-  "homepage": "https://jsoncrack.com",
+  "author": "https://github.com/hiteshjagwani102",
+  "homepage": "https://hiteshjagwani102.github.io",
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
     "lint": "tsc && next lint",
     "lint:fix": "prettier --write ./src & eslint --fix src",
-    "deploy": "gh-pages -d out -t true"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d out"
   },
   "dependencies": {
+    "-": "^0.0.1",
     "@emotion/react": "^11.10.6",
     "@emotion/server": "^11.10.0",
     "@mantine/core": "^6.0.1",
@@ -26,6 +28,7 @@
     "altogic": "^2.3.9",
     "axios": "^1.3.4",
     "dayjs": "^1.11.7",
+    "gh-pages": "^5.0.0",
     "html-to-image": "^1.11.11",
     "jsonc-parser": "^3.2.0",
     "lodash.debounce": "^4.0.8",
@@ -40,6 +43,7 @@
     "react-syntax-highlighter": "^15.5.0",
     "react-zoom-pan-pinch": "^3.0.2",
     "reaflow": "^5.1.2",
+    "save-dev": "^0.0.1-security",
     "styled-components": "^5.3.8",
     "zustand": "^4.3.6"
   },

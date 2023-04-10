@@ -2,7 +2,6 @@ import toast from "react-hot-toast";
 import { create } from "zustand";
 import { altogic } from "src/api/altogic";
 import { AltogicAuth, User } from "src/typings/altogic";
-import useModal from "./useModal";
 
 interface UserActions {
   login: (response: AltogicAuth) => void;
@@ -32,7 +31,6 @@ const useUser = create<UserStates & UserActions>()((set, get) => ({
   logout: () => {
     altogic.auth.signOut();
     toast.success("Logged out.");
-    useModal.setState({ account: false });
     set(initialStates);
   },
   login: response => {
@@ -56,11 +54,8 @@ const useUser = create<UserStates & UserActions>()((set, get) => ({
     }
   },
   validatePremium: callback => {
-    if (get().isAuthenticated) {
-      if (!get().isPremium()) return useModal.getState().setVisible("premium")(true);
+    if (get().isAuthenticated) { 
       return callback();
-    } else {
-      return useModal.getState().setVisible("account")(true);
     }
   },
 }));
